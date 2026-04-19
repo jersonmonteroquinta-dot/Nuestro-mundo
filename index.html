@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestro espacio de amor</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: pink;
+    overflow-x: hidden;
+}
+
+/* Botones */
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff4d6d;
+    color: white;
+}
+
+/* Pantallas */
+.section {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
+
+.active {
+    display: block;
+}
+
+/* Corazones */
+.heart {
+    position: fixed;
+    color: red;
+    font-size: 20px;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1;}
+    100% { transform: translateY(-800px); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Pantalla inicio -->
+<div id="inicio" class="section active">
+    <h1>💗 Bienvenida 💗</h1>
+    <button onclick="mostrar('menu')">Nuestro pequeño espacio de amor</button>
+</div>
+
+<!-- Menú -->
+<div id="menu" class="section">
+    <h2>✨ Nuestro mundo ✨</h2>
+
+    <button onclick="mostrar('anime')">Versiones Anime</button><br><br>
+    <button onclick="mostrar('carta')">Carta</button><br><br>
+    <button onclick="mostrar('fotos')">Fotos privadas</button><br><br>
+    <button onclick="mostrar('video')">Nuestro video</button>
+</div>
+
+<!-- Anime -->
+<div id="anime" class="section">
+    <h2>💑 Versiones Anime</h2>
+
+<p>Versión 1</p>
+<img src="foto1.jpg" width="200"><br><br>
+
+<p>Versión 2</p>
+<img src="foto2.jpg" width="200"><br><br>
+
+<p>Versión 3</p>
+<img src="foto3.jpg" width="200"><br><br>
+
+    <button onclick="mostrar('menu')">Volver</button>
+</div>
+
+<!-- Carta -->
+<div id="carta" class="section">
+    <h2>📖 Carta</h2>
+
+  <p style="max-width: 600px; margin: auto; font-size: 18px; line-height: 1.6;">
+Mi amorcito:
+
+Todo estos 4 meses que llevamos han sido increibles y quiero decirte que han sido increibles.
+
+hemos vivido mucho verdad? jsjsj, Alegrias, momentos divertidos, risas, siestas, besos, momentos bien uff y peleas.
+
+Ahora estamos en una de esas, pero no es nada que no sepamos afrontar con madures jsjs, ya que otros hubieran discutido
+
+hasta los insultos, o ha no hablarse. Pero nosotros nos mantenemos comunicandonos y aprecio eso, que apesar de todo no
+
+dejamos de querernos y como dijo tsukasa:Lo mas importante para mi es tu vida. Ahi es donde entiendo mi error de hoy
+
+no debi hacerme el tonto cuando querias saber lo que me paso, y te pido perdon por eso amorcito. Ahora si ya no me hare wey
+
+y te dire de frente cuando algo me pasa, como tu lo haces conmigo. Gracias por estar ahi siempre para mi amorcito, te amo muchisimo 💗
+</p>
+
+    <audio controls>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio><br><br>
+
+    <button onclick="mostrar('menu')">Volver</button>
+</div>
+
+<!-- Fotos privadas -->
+<div id="fotos" class="section">
+    <h2>📸 Fotos especiales</h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+
+    <img src="privada1.jpg" width="200" style="border-radius: 10px;">
+    <img src="privada2.jpg" width="200" style="border-radius: 10px;">
+    <img src="privada3.jpg" width="200" style="border-radius: 10px;">
+    <img src="privada4.jpg" width="200" style="border-radius: 10px;">
+
+</div><br>
+
+    <button onclick="mostrar('menu')">Volver</button>
+</div>
+
+<!-- Video -->
+<div id="video" class="section">
+    <h2>🎬 Nuestro video</h2>
+
+    <video controls width="300" style="border-radius: 15px;">
+    <source src="video.mp4" type="video/mp4">
+</video><br><br>
+  
+   <p style="max-width: 600px; margin: auto; font-size: 18px; line-height: 1.6;">
+
+     De momento es esto, luego se viene nuestro anime jsjs
+     </p>
+
+    <button onclick="mostrar('menu')">Volver</button>
+</div>
+
+<script>
+function mostrar(id) {
+    let secciones = document.querySelectorAll('.section');
+    secciones.forEach(sec => sec.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+}
+
+/* Crear corazones */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+
+}, 300);
+</script>
+
+</body>
+</html>
